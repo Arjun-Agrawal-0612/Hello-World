@@ -21,7 +21,7 @@ export default function Home() {
 
       {/* ---------- WHAT IS HELLO WORLD ---------- */}
       <section className="shell py-24 md:py-32">
-        <SectionLabel index="00">What is Hello World</SectionLabel>
+        <SectionLabel index="00">What is HelloWorld!</SectionLabel>
 
         <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
           <Reveal>
@@ -43,7 +43,7 @@ export default function Home() {
               designer makes it make sense. A founder turns it into something real.
             </p>
             <p className="text-ink font-medium">
-              Hello World puts all of those people in the same room.
+              HelloWorld! puts all of those people in the same room.
             </p>
           </Reveal>
         </div>
@@ -157,7 +157,9 @@ export default function Home() {
             <div className="border border-ink/15 p-8 md:p-14 bg-paper-bright">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                 <div>
-                  <p className="eyebrow text-aqua-deep">Next up</p>
+                  <p className="eyebrow text-aqua-deep">
+                    {next.date ? "Next up" : "Coming soon"}
+                  </p>
                   <h2 className="mt-5 font-display text-[clamp(1.75rem,4.5vw,3rem)] max-w-[18ch]">
                     {next.title}
                   </h2>
@@ -230,7 +232,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="eyebrow mt-11 inline-flex items-center gap-3 bg-aqua text-ink px-8 py-4 transition-all duration-300 hover:gap-5"
             >
-              Join Hello World
+              Join HelloWorld!
               <span aria-hidden="true">&rarr;</span>
             </a>
             <p className="mt-6 eyebrow text-paper/35">Via Northeastern Engage</p>

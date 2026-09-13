@@ -8,7 +8,8 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Join",
   description:
-    "Join Hello World at Northeastern University Oakland. No coding experience required — every major welcome.",
+    "Join HelloWorld! at Northeastern University Oakland. No coding experience required — every major welcome.",
+  alternates: { canonical: "./" },
 };
 
 export default function Join() {
@@ -53,7 +54,7 @@ export default function Join() {
             <span>
               <span className="eyebrow text-aqua block">Northeastern Engage</span>
               <span className="mt-2 block font-display text-2xl md:text-3xl tracking-[-0.03em]">
-                Join Hello World
+                Join HelloWorld!
               </span>
             </span>
             <span
@@ -63,6 +64,15 @@ export default function Join() {
               &rarr;
             </span>
           </a>
+        </Reveal>
+
+        {/* Engage sits behind Northeastern SSO. Say so, so a student scanning
+            at the table isn't surprised by a login wall. */}
+        <Reveal delay={260}>
+          <p className="mt-5 text-sm text-ink-soft max-w-md leading-relaxed">
+            Engage asks you to sign in with your Northeastern account first.
+            That&apos;s expected — it&apos;s how the university tracks club membership.
+          </p>
         </Reveal>
 
         {socials.length > 0 && (

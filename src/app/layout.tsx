@@ -3,6 +3,7 @@ import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { site } from "@/content/site";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { StructuredData } from "@/components/StructuredData";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [...site.seoKeywords],
+  alternates: { canonical: "./" },
   applicationName: site.name,
   authors: [{ name: `${site.name}, ${site.school}` }],
   openGraph: {
@@ -63,6 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <StructuredData />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper eyebrow"

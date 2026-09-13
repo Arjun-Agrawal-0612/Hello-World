@@ -9,7 +9,8 @@ import { JOIN_URL } from "@/content/links";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Hello World is an interdisciplinary technology and innovation community at Northeastern University Oakland. Learn what we do and what we believe.",
+    "HelloWorld! is an interdisciplinary technology and innovation community at Northeastern University Oakland. Learn what we do and what we believe.",
+  alternates: { canonical: "./" },
 };
 
 export default function About() {
@@ -136,7 +137,7 @@ export default function About() {
           </Reveal>
           <Reveal delay={120} className="space-y-6 text-ink-soft leading-relaxed self-center">
             <p>
-              Hello World is based at Northeastern University Oakland — students,
+              HelloWorld! is based at Northeastern University Oakland — students,
               but students sitting inside one of the world&apos;s strongest ecosystems
               for technology, startups, AI, venture capital, and design.
             </p>
@@ -147,7 +148,7 @@ export default function About() {
             </p>
             <div className="pt-4">
               <Button href={JOIN_URL} external>
-                Join Hello World
+                Join HelloWorld!
               </Button>
             </div>
           </Reveal>

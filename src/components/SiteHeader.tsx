@@ -51,7 +51,7 @@ export function SiteHeader() {
         <div className="shell flex items-center justify-between h-[4.5rem]">
           <Link
             href="/"
-            aria-label="Hello World — home"
+            aria-label="HelloWorld! — home"
             className="relative z-10 transition-opacity hover:opacity-65"
           >
             <LogoLockup uid="hdr" markClass="h-[1.875rem] w-[1.875rem]" />
@@ -153,7 +153,7 @@ export function SiteHeader() {
                 : undefined,
             }}
           >
-            Join Hello World &rarr;
+            Join HelloWorld! &rarr;
           </a>
 
           <div className="mt-auto pb-10 pt-12 flex items-center gap-3 text-ink-soft">

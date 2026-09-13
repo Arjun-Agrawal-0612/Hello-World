@@ -25,7 +25,7 @@ export function SiteFooter() {
             <div className="flex items-center gap-3">
               <LogoMark uid="ftr" className="h-12 w-12" variant="compact" tone="light" />
               <span className="font-display text-2xl font-semibold tracking-[-0.035em]">
-                hello world
+                HelloWorld!
               </span>
             </div>
             <p className="eyebrow mt-5 text-aqua">{site.tagline}</p>

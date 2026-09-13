@@ -9,7 +9,8 @@ import { JOIN_URL } from "@/content/links";
 export const metadata: Metadata = {
   title: "Team",
   description:
-    "The officers behind Hello World at Northeastern University Oakland — computer science, psychology, economics, biology, and business.",
+    "The officers behind HelloWorld! at Northeastern University Oakland — computer science, psychology, economics, biology, and business.",
+  alternates: { canonical: "./" },
 };
 
 export default function Team() {
@@ -58,7 +59,7 @@ export default function Team() {
             </p>
             <div className="mt-9">
               <Button href={JOIN_URL} external>
-                Join Hello World
+                Join HelloWorld!
               </Button>
             </div>
           </div>

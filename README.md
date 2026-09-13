@@ -1,6 +1,17 @@
-# Hello World — website
+# HelloWorld! — website
 
 Northeastern University Oakland. **People × Ideas × Impact**
+
+## Naming
+
+The official organization name is exactly **`HelloWorld!`** — one word, capital
+H and W, with the exclamation mark. It is not "Hello World", "hello world", or
+"HelloWorld".
+
+Use `site.name` from `src/content/site.ts` anywhere the organization is named,
+rather than typing the string. The only place the spaced lowercase form appears
+is the About page, where it quotes the *programming phrase* `print("Hello,
+World!")` — that is a quotation, not our name.
 
 Next.js 16 · React 19 · Tailwind v4 · TypeScript. Every page is statically
 generated, so it loads fast on a phone at the tabling booth.
@@ -39,6 +50,11 @@ the line. Put headshots in `public/team/` and reference them as `/team/name.jpg`
 
 Append to `src/content/events.ts` with an ISO `date` (`"2026-10-08"`). It sorts
 itself and moves to "Past" on its own. `time`, `location`, and `rsvp` accept `null`.
+
+`date` also accepts `null`, for an event that is real but not yet scheduled. It
+renders as "Date TBA", sorts after every scheduled event, and never expires —
+so a plan is never shown to students as a confirmed fact. Give it a real date
+once one exists.
 
 ### Hiding a social link
 
@@ -79,9 +95,12 @@ The original raster logo and the palette reference are kept in `public/brand/`.
 
 ## Before launch
 
-- [ ] Set the real deployed URL in `src/content/site.ts` (`url`) — Open Graph and
-      the sitemap both read from it.
-- [ ] Fill in the `TODO`s in `team.ts` (last names, bios) and `events.ts`
-      (tabling time and place, real first-meeting date).
-- [ ] Add socials to `links.ts`.
+- [ ] Set the real deployed URL in `src/content/site.ts` (`url`) — Open Graph,
+      the canonical tags, the sitemap and the structured data all read from it.
+- [ ] Fill in the `TODO`s in `team.ts` (last names, bios, socials) and
+      `events.ts` (tabling time and place, first-meeting date once confirmed).
+- [ ] Add socials to `links.ts`. Anything left `null` stays hidden sitewide.
 - [ ] Generate the QR code against the deployed URL, not localhost.
+
+Note: the join link points at Northeastern Engage, which requires Northeastern
+SSO. The Join page tells visitors this so the login wall isn't a surprise.

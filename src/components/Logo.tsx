@@ -1,5 +1,5 @@
 /**
- * The Hello World mark, rebuilt as inline SVG so it stays crisp at any size,
+ * The HelloWorld! mark, rebuilt as inline SVG so it stays crisp at any size,
  * carries no background box, and can animate its orbit.
  *
  * Two variants, because the full mark loses legibility below ~44px:
@@ -138,7 +138,7 @@ export function LogoLockup({
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoMark uid={uid} className={markClass} animated={animated} variant={variant} tone={tone} />
       <span className="font-display text-[1.0625rem] font-semibold tracking-[-0.035em] leading-none">
-        hello world
+        HelloWorld!
       </span>
     </span>
   );

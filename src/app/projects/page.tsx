@@ -8,7 +8,8 @@ import { JOIN_URL } from "@/content/links";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "The problems Hello World is pointed at — AI, web, psychology, economics, research, and community projects open to Northeastern Oakland students.",
+    "The problems HelloWorld! is pointed at — AI, web, psychology, economics, research, and community projects open to Northeastern Oakland students.",
+  alternates: { canonical: "./" },
 };
 
 const statusCopy = {

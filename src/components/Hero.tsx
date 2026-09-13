@@ -25,23 +25,34 @@ export function Hero() {
           {site.school}
         </p>
 
-        <h1 className="veil mt-8 font-display font-semibold text-ink text-[clamp(3.25rem,13vw,10.5rem)] leading-[0.86] tracking-[-0.05em]">
-          <span style={{ ["--veil-delay" as string]: "80ms" }}>hello</span>
-          <span style={{ ["--veil-delay" as string]: "200ms" }}>world</span>
+        {/* The organization's name, exactly: HelloWorld! The aqua exclamation
+            mark echoes the logo lockup. */}
+        <h1 className="veil mt-8 font-display font-semibold text-ink text-[clamp(2.75rem,11.5vw,9.5rem)] leading-[0.88] tracking-[-0.05em]">
+          <span style={{ ["--veil-delay" as string]: "80ms" }}>
+            HelloWorld<span className="text-aqua">!</span>
+          </span>
         </h1>
+
+        <p
+          className="mt-7 font-display text-[clamp(1.375rem,4.5vw,2.25rem)] leading-[1.15] tracking-[-0.03em] max-w-[20ch]"
+          style={{ animation: "hw-rise 0.9s cubic-bezier(0.16,1,0.3,1) 460ms both" }}
+        >
+          Understand people. Build technology.{" "}
+          <span className="text-aqua-deep">Turn ideas into impact.</span>
+        </p>
 
         <div
           className="mt-8 flex items-center gap-4"
-          style={{ animation: "hw-rise 0.9s cubic-bezier(0.16,1,0.3,1) 520ms both" }}
+          style={{ animation: "hw-rise 0.9s cubic-bezier(0.16,1,0.3,1) 560ms both" }}
         >
-          <span className="eyebrow text-aqua-deep text-[0.8125rem] tracking-[0.22em]">
+          <span className="eyebrow text-ink-soft text-[0.8125rem] tracking-[0.22em]">
             People &times; Ideas &times; Impact
           </span>
         </div>
 
         <p
-          className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-ink-soft font-light"
-          style={{ animation: "hw-rise 0.9s cubic-bezier(0.16,1,0.3,1) 640ms both" }}
+          className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-ink-soft font-light"
+          style={{ animation: "hw-rise 0.9s cubic-bezier(0.16,1,0.3,1) 660ms both" }}
         >
           A student-led technology and innovation community where{" "}
           <span className="text-ink">technology, psychology, economics,
@@ -54,10 +65,10 @@ export function Hero() {
           style={{ animation: "hw-rise 0.9s cubic-bezier(0.16,1,0.3,1) 760ms both" }}
         >
           <Button href={JOIN_URL} external>
-            Join us
+            Join HelloWorld!
           </Button>
           <Button href="/about" variant="outline">
-            Explore what we do
+            Explore
           </Button>
         </div>
       </div>

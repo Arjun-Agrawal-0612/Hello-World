@@ -2,20 +2,25 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui";
-import { upcomingEvents, pastEvents, formatEventDate, type ClubEvent } from "@/content/events";
+import {
+  upcomingEvents,
+  pastEvents,
+  formatEventDate,
+  isUnscheduled,
+  type ClubEvent,
+} from "@/content/events";
 import { JOIN_URL } from "@/content/links";
 
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Build nights, workshops, hackathons, and founder talks from Hello World at Northeastern University Oakland.",
+    "Build nights, workshops, hackathons, and founder talks from HelloWorld! at Northeastern University Oakland.",
+  alternates: { canonical: "./" },
 };
 
 function EventRow({ event, past = false }: { event: ClubEvent; past?: boolean }) {
-  const meta = [
-    event.time,
-    event.location,
-  ].filter(Boolean) as string[];
+  const meta = [event.time, event.location].filter(Boolean) as string[];
+  const unscheduled = isUnscheduled(event);
 
   return (
     <div
@@ -24,14 +29,22 @@ function EventRow({ event, past = false }: { event: ClubEvent; past?: boolean })
       }`}
     >
       <div>
-        <time dateTime={event.date} className="eyebrow text-aqua-deep block">
-          {formatEventDate(event.date)}
-        </time>
+        {unscheduled ? (
+          // Deliberately not a <time> element — there is no date to encode.
+          <span className="eyebrow text-mauve-deep block">Date TBA</span>
+        ) : (
+          <time dateTime={event.date!} className="eyebrow text-aqua-deep block">
+            {formatEventDate(event.date)}
+          </time>
+        )}
         {meta.length > 0 && (
           <p className="mt-2 eyebrow text-ink-soft/70">{meta.join(" · ")}</p>
         )}
-        {meta.length === 0 && !past && (
+        {meta.length === 0 && !past && !unscheduled && (
           <p className="mt-2 eyebrow text-ink-soft/50">Time &amp; place TBA</p>
+        )}
+        {unscheduled && (
+          <p className="mt-2 eyebrow text-ink-soft/50">Not yet scheduled</p>
         )}
       </div>
 
@@ -73,7 +86,7 @@ export default function Events() {
         {upcoming.length > 0 ? (
           <ul className="divide-y divide-stone border-t border-stone">
             {upcoming.map((e, i) => (
-              <Reveal key={e.title + e.date} as="li" delay={i * 80}>
+              <Reveal key={e.title} as="li" delay={i * 80}>
                 <EventRow event={e} />
               </Reveal>
             ))}
@@ -89,7 +102,7 @@ export default function Events() {
               </p>
               <div className="mt-8 flex justify-center">
                 <Button href={JOIN_URL} external>
-                  Join Hello World
+                  Join HelloWorld!
                 </Button>
               </div>
             </div>
@@ -101,7 +114,7 @@ export default function Events() {
             <h2 className="eyebrow text-ink-soft pb-5 border-b border-stone">Past</h2>
             <ul className="divide-y divide-stone">
               {past.map((e) => (
-                <li key={e.title + e.date}>
+                <li key={e.title}>
                   <EventRow event={e} past />
                 </li>
               ))}

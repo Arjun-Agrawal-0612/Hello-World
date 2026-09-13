@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Hello World">
+  <defs>
+    <linearGradient id="hw-g" x1="34" y1="150" x2="170" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#36382E"/>
+      <stop offset="0.55" stop-color="#3E7E9B"/>
+      <stop offset="1" stop-color="#5BC3EB"/>
+    </linearGradient>
+    <linearGradient id="hw-g2" x1="60" y1="130" x2="150" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#36382E"/>
+      <stop offset="1" stop-color="#5BC3EB"/>
+    </linearGradient>
+    <mask id="hw-crescent">
+      <rect width="200" height="200" fill="black"/>
+      <circle cx="100" cy="100" r="62" fill="white"/>
+      <circle cx="87" cy="96" r="59" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- orbit, behind the planet -->
+  <ellipse cx="100" cy="100" rx="94" ry="37" transform="rotate(-21 100 100)"
+           stroke="url(#hw-g)" stroke-width="3.2"/>
+
+  <!-- planet body: thin full ring + thick gradient crescent -->
+  <circle cx="100" cy="100" r="62" stroke="url(#hw-g2)" stroke-width="3.4"/>
+  <circle cx="100" cy="100" r="62" fill="url(#hw-g)" mask="url(#hw-crescent)"/>
+
+  <!-- code glyph -->
+  <g stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="86,79 68,100 86,121" stroke="#36382E"/>
+    <line x1="110" y1="74" x2="94" y2="126" stroke="#3E7E9B"/>
+    <polyline points="118,79 136,100 118,121" stroke="#5BC3EB"/>
+  </g>
+
+  <!-- orbit front arc, crossing over the planet at lower left -->
+  <path d="M 26.5 84.5 A 94 37 -21 0 0 128 158" stroke="url(#hw-g2)" stroke-width="3.2" stroke-linecap="round"/>
+
+  <!-- idea sparkle -->
+  <path d="M168 34 C170 52 175 57 191 60 C175 63 170 68 168 86 C166 68 161 63 145 60 C161 57 166 52 168 34 Z" fill="#5BC3EB"/>
+</svg>

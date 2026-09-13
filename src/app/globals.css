@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+/* ============================================================
+   HELLO WORLD — design system
+   Palette is fixed: charcoal + parchment foundation,
+   aqua primary accent, mauve secondary. Do not add colors.
+   ============================================================ */
+
+@theme {
+  /* --- brand palette --- */
+  --color-ink: #36382e;        /* Charcoal Brown  — primary text, dark sections */
+  --color-ink-deep: #24261f;   /* derived deeper charcoal for layering          */
+  --color-ink-soft: #55574b;   /* derived, for secondary text on parchment      */
+  --color-paper: #ede6e3;      /* Parchment       — page background             */
+  --color-paper-bright: #f6f2f0; /* derived lift for cards on parchment         */
+  --color-stone: #dadad9;      /* Alabaster Grey  — rules, borders, dividers    */
+  --color-aqua: #5bc3eb;       /* Sky Aqua        — primary accent              */
+  --color-aqua-deep: #2a7ca0;  /* derived, accessible aqua for text on parchment*/
+  --color-mauve: #af7595;      /* Dusty Mauve     — secondary accent            */
+  --color-mauve-deep: #8c5375; /* derived, accessible mauve for text            */
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * { border-color: var(--color-stone); }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-aqua);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-aqua-deep);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+}
+
+@layer components {
+  /* Small uppercase technical label. Used for eyebrows and tags. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Page gutter, consistent everywhere. */
+  .shell {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) { .shell { padding-inline: 2.5rem; } }
+  @media (min-width: 1280px) { .shell { padding-inline: 3.5rem; } }
+
+  /* Hairline rule that matches the stone token. */
+  .rule { border-top: 1px solid var(--color-stone); }
+}
+
+/* ============================================================
+   Motion. Everything here is opt-out via prefers-reduced-motion.
+   ============================================================ */
+
+@keyframes hw-rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes hw-veil {
+  from { clip-path: inset(0 0 105% 0); }
+  to   { clip-path: inset(0 0 -5% 0); }
+}
+
+@keyframes hw-orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes hw-twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.88); }
+}
+
+@keyframes hw-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes hw-caret {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Scroll reveal: elements start hidden, .is-visible is set by observer. */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.85s var(--ease-out-expo),
+    transform 0.85s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Words in the hero, revealed under a mask. */
+.veil > span {
+  display: block;
+  animation: hw-veil 1.1s var(--ease-out-expo) both;
+  animation-delay: var(--veil-delay, 0ms);
+}
+
+.animate-orbit   { animation: hw-orbit 26s linear infinite; transform-origin: 50% 50%; }
+.animate-twinkle { animation: hw-twinkle 3.4s ease-in-out infinite; transform-origin: 50% 50%; }
+.animate-caret   { animation: hw-caret 1.1s step-end infinite; }
+.animate-drift   { animation: hw-drift 42s linear infinite; }
+
+/* Underline that draws in on hover, rather than appearing all at once. */
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.45s var(--ease-out-expo);
+}
+.link-draw:hover,
+.link-draw:focus-visible { background-size: 100% 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .veil > span { animation: none; clip-path: none; }
+}

@@ -34,7 +34,7 @@ export const events: ClubEvent[] = [
     title: "HelloWorld! — First Meeting",
     date: null,
     time: null,
-    location: null,
+    location: "Mary Atkins Lounge",
     blurb:
       "Meet the team, hear what we're building this semester, and find where you fit. No experience needed.",
     rsvp: null,

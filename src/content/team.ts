@@ -13,8 +13,8 @@ export type Member = {
 
 /**
  * NOTHING HERE IS INVENTED.
- * TODO before launch: last names for Mithali / Hershey / Ilisha, one-line bios
- * for everyone except Arjun Agrawal, headshots into /public/team/, and socials.
+ * TODO before launch: last names for Mitali / Hershey / Ilisha, one-line bios
+ * for everyone except Arjun Agrawal, and socials.
  * Roles are all "Officer" for now — update as titles are decided.
  */
 export const team: Member[] = [
@@ -23,7 +23,7 @@ export const team: Member[] = [
     role: "Officer",
     major: "Computer Science + Economics",
     bio: "Interested in technology, entrepreneurship, AI, product development, and building things from scratch.",
-    photo: null,
+    photo: "/team/arjun-agrawal.jpg",
     linkedin: null,
     github: null,
     website: null,
@@ -33,17 +33,17 @@ export const team: Member[] = [
     role: "Officer",
     major: "Psychology",
     bio: null,
-    photo: null,
+    photo: "/team/arjun-singh.jpg",
     linkedin: null,
     github: null,
     website: null,
   },
   {
-    name: "Mithali",
+    name: "Mitali",
     role: "Officer",
     major: "Computer Science + Biology",
     bio: null,
-    photo: null,
+    photo: "/team/mitali.jpg",
     linkedin: null,
     github: null,
     website: null,
@@ -53,7 +53,7 @@ export const team: Member[] = [
     role: "Officer",
     major: "Computer Science",
     bio: null,
-    photo: null,
+    photo: "/team/hershey.jpg",
     linkedin: null,
     github: null,
     website: null,
@@ -63,7 +63,7 @@ export const team: Member[] = [
     role: "Officer",
     major: "Computer Science + Business",
     bio: null,
-    photo: null,
+    photo: "/team/ilisha.jpg",
     linkedin: null,
     github: null,
     website: null,

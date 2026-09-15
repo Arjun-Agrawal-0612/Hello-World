@@ -9,7 +9,7 @@ export const links = {
   engage: "https://engage.northeastern.edu/feeds?type=club&type_id=36481&tab=about",
 
   // TODO: paste real handles/URLs, or set to null to hide.
-  instagram: null as string | null,
+  instagram: "https://www.instagram.com/neu_helloworld/" as string | null,
   linkedin: null as string | null,
   github: null as string | null,
   discord: null as string | null,

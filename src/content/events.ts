@@ -18,7 +18,6 @@ export type ClubEvent = {
  * Add new events here. Scheduled ones move to "Past" automatically by date.
  *
  * TODO: confirm the tabling window and exact spot on campus for Sept 16.
- * TODO: once the first meeting is actually scheduled, set its `date`.
  */
 export const events: ClubEvent[] = [
   {
@@ -31,12 +30,12 @@ export const events: ClubEvent[] = [
     rsvp: null,
   },
   {
-    title: "HelloWorld! — First Meeting",
-    date: null,
+    title: "HelloWorld! Interest Meeting",
+    date: "2026-10-22",
     time: null,
-    location: "Mary Atkins Lounge",
+    location: "Student Union, Northeastern University Oakland",
     blurb:
-      "Meet the team, hear what we're building this semester, and find where you fit. No experience needed.",
+      "Curious about HelloWorld!? Join us for our interest meeting to learn how you can get involved, meet fellow students, explore upcoming projects, and discover opportunities to build real-world technology. Whether you're an experienced developer or just getting started, there's a place for you.",
     rsvp: null,
   },
 ];
